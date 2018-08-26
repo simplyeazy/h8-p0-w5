@@ -1,38 +1,37 @@
 function graduates(students) {
-    let listClass = [];
-    let school = {};
-    // CREATING LIST OF CLASSES FROM INPUT
-    for (let i = 0; i < students.length; i++) { // get list of class
+    let arrayClass = [];
+    let schoolObject = {};
+    for (let i = 0; i < students.length; i++) {
         let studentClass = students[i].class;
-        if (listClass.includes(studentClass)) {
+        if (arrayClass.includes(studentClass)) {
         } else {
-            listClass.push(studentClass);
+            arrayClass.push(studentClass);
         }
     }
 
-    for (let i = 0; i < listClass.length; i++) {
+    for (let i = 0; i < arrayClass.length; i++) {
 
-        let schoolKey = listClass[i];
-        school[schoolKey] = [];
+        let schoolKey = arrayClass[i];
+        schoolObject[schoolKey] = [];
     }
 
-    for (let key in school) {
+    for (let key in schoolObject) {
         for (let i = 0; i < students.length; i++) {
             let studentClass = students[i].class;
             let studentScore = students[i].score;
             if (studentScore > 75) {
                 if (studentClass === key) {
-                    school[key].push(students[i]);
+                    schoolObject[key].push(students[i]);
                 }
             }
         }
     }
-    for (let key in school) {
-        for (let i = 0; i < school[key].length; i++) {
-            delete school[key][i].class;
+    for (let key in schoolObject) {
+        for (let i = 0; i < schoolObject[key].length; i++) {
+            delete schoolObject[key][i].class;
         }
     }
-    return school;
+    return schoolObject;
 }
 
 console.log(graduates([
