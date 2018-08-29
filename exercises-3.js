@@ -1,5 +1,4 @@
 function highestScore(students) {
-   
     let toRet = {}
     students.forEach(element => {
       if (!toRet.hasOwnProperty(element.class)) {
